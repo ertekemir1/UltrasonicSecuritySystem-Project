@@ -1,0 +1,36 @@
+# STM32 Ultrasonic Sensor Project
+
+This project uses an *STM32L073RZ Nucleo board* and an *HC-SR04 ultrasonic sensor* to measure distance. Depending on the measured distance, the system behaves as follows:
+
+- *Green LED* (D4 - PB5): Turns on if the distance is safe (greater than 50 cm)
+- *Red LED* (D7 - PB4): Turns on if the object is too close (less than 20 cm)
+- *Buzzer* (D8 - PB10): Sounds an alarm if the object is too close
+
+## Hardware
+
+- STM32 Nucleo-L073RZ board
+- HC-SR04 ultrasonic sensor
+- 2 LEDs (red and green)
+- Active buzzer
+- 330Ω resistors
+- Breadboard & jumper wires
+
+## Pin Connections
+
+| Component    | STM32 Pin | Header Pin |
+|--------------|-----------|-------------|
+| Trig (Sensor)| PA0       | A0          |
+| Echo (Sensor)| PA1       | A1          |
+| Green LED    | PB5       | D4          |
+| Red LED      | PB4       | D7          |
+| Buzzer       | PB10      | D8          |
+
+> For the Echo pin, use a 1kΩ–2kΩ resistor voltage divider to safely reduce the 5V signal to 3.3V.
+
+## Setup Instructions
+
+1. Create the project in *STM32CubeMX*
+2. Set up Timer2 and configure the necessary GPIO pins
+3. Copy the code into the main.c file
+4. Generate code and build the project in *STM32CubeIDE*
+5. Flash the firmware to the board
